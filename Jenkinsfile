@@ -5,7 +5,7 @@ pipeline {
         CHROME_VERSION = '127.0.6533.73'
         CHROMEDRIVER_VERSION = '127.0.6533.73'
         CROME_INSTALL_PATH = 'C:\\Program Files\\Google\\Chrome\\Application'
-        CHROMEDRIVER_PATH = '"C:\\Program Files\\Google\\Chrome\\Application\\chromedriver.exe"'
+        CHROMEDRIVER_PATH = 'C:\\Program Files\\Google\\Chrome\\Application\\chromedriver.exe'
     }
     stages {
         stage('Checkout code') {
@@ -35,7 +35,7 @@ pipeline {
                 bat '''
                 echo Installing Google Chrome version %CHROME_VERSION%
                 choco install googlechrome --version=%CHROME_VERSION% -y --allow-downgrade --ignore-checksums'''
-        }
+            }
         }
 
         stage('Download and Install ChromeDriver') { 
