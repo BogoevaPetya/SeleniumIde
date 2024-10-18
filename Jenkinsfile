@@ -44,14 +44,20 @@ pipeline {
             } 
         }
 
+        stage('Restore dependencies') {
+            steps {
+                bat 'dotnet restore SeleniumIde.sln'
+            }
+        }
+
         stage('Build project') {
             steps {
-                bat 'dotnet build'
+                bat 'dotnet build SeleniumIde.sln --configuration Release'
             }
         }
         stage('Execute tests') {
             steps {
-                bat 'dotnet test'
+                bat 'dotnet test SeleniumIde.sln --logger "trx;LogFileName=TestResults.trx"'
             }
         }     
     }
