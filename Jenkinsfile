@@ -42,17 +42,18 @@ pipeline {
             steps { 
                 bat ''' echo Downloading ChromeDriver version %CHROMEDRIVER_VERSION% powershell -command "Invoke-WebRequest -Uri https://chromedriver.storage.googleapis.com/%CHROMEDRIVER_VERSION%/chromedriver_win32.zip -OutFile chromedriver.zip -UseBasicParsing" powershell -command "Expand-Archive -Path chromedriver.zip -DestinationPath ." powershell -command "Move-Item -Path .\\chromedriver.exe -Destination '%CHROME_INSTALL_PATH%\\chromedriver.exe' -Force" '''
             } 
+        }
+
+        stage('Build project') {
+            steps {
+                bat 'dotnet build'
+            }
+        }
+        stage('Execute tests') {
+            steps {
+                bat 'dotnet test'
+            }
         }     
     }
 }
 
-// stage('Build project') {
-        //     steps {
-        //         bat 'dotnet build'
-        //     }
-        // }
-        // stage('Execute tests') {
-        //     steps {
-        //         bat 'dotnet test'
-        //     }
-        // }
