@@ -43,9 +43,11 @@ pipeline {
             } 
         }
 
+    }
+}
+}
 
-
-        // stage('Build project') {
+// stage('Build project') {
         //     steps {
         //         bat 'dotnet build'
         //     }
@@ -55,5 +57,3 @@ pipeline {
         //         bat 'dotnet test'
         //     }
         // }
-    }
-}
