@@ -18,7 +18,7 @@ pipeline {
             steps {
                 bat '''
                 echo Installing .NET SDK 6.0
-                chocko install dotnet-sdk -y --version=6.0.100'''
+                choco install dotnet-sdk -y --version=6.0.100'''
             }
         }
 
@@ -26,7 +26,7 @@ pipeline {
             steps {
                 bat '''
                 echo Uninstalling current Google Chrome
-                chocko uninstall Google Chrome -y'''
+                choco uninstall Google Chrome -y'''
             }
         }
 
@@ -34,7 +34,7 @@ pipeline {
             steps {
                 bat '''
                 echo Installing Google Chrome version %CHROME_VERSION%
-                chocko install googlechrome --version=%CHROME_VERSION% -y --allow-downgrade --ignore-checksums'''
+                choco install googlechrome --version=%CHROME_VERSION% -y --allow-downgrade --ignore-checksums'''
         }
         }
 
