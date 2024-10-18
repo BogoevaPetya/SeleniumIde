@@ -6,10 +6,10 @@ pipeline {
                 bat 'dotnet build'
             }
         }
-        stage('Execute Tests') {
+        stage('Execute tests') {
             steps {
                 bat 'dotnet test'
             }
-        }   
+        }
     }
 }
