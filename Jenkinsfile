@@ -44,6 +44,12 @@ pipeline {
             } 
         }
 
+        stage('Check dotnet version') {
+            steps {
+                bat 'dotnet --version'
+            }
+        }
+
         stage('Restore dependencies') {
             steps {
                 bat 'dotnet restore SeleniumIde.sln'
