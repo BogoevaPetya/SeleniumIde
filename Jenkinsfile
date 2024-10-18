@@ -22,13 +22,13 @@ pipeline {
             }
         }
 
-        stage('Uninstall Current Chrome') {
-            steps {
-                bat '''
-                echo Uninstalling current Google Chrome
-                choco uninstall Google Chrome -y'''
-            }
-        }
+        // stage('Uninstall Current Chrome') {
+        //     steps {
+        //         bat '''
+        //         echo Uninstalling current Google Chrome
+        //         choco uninstall Google Chrome -y'''
+        //     }
+        // }
 
         stage('Install Specific version of Chrome') {
             steps {
